@@ -1,61 +1,38 @@
-# import sqlite3
+import requests
 
-# # Connect to the old and new SQLite databases
-# old_db_conn = sqlite3.connect('shopify_apps.db')
-# old_cursor = old_db_conn.cursor()
+cookies = {
+    '__RequestVerificationToken': '2PeepECnlPkgkwtsHEdACjrvT_nvW3RNlM_9inAmT9WOjBf0JjfAroXWl5ciDDVuI_WY3brhHlB1KgJNuB6V_jAl_GOq_vp3enx_wQnmFaU1',
+    'ARRAffinity': '04b2e23daad7b335226461beb98df5e96b43a7b5e4952d7261c63364419b3f33',
+    'ARRAffinitySameSite': '04b2e23daad7b335226461beb98df5e96b43a7b5e4952d7261c63364419b3f33',
+}
 
-# new_db_conn = sqlite3.connect('shopify_app.db')
-# new_cursor = new_db_conn.cursor()
+headers = {
+    'accept': '*/*',
+    'accept-language': 'ru,en-US;q=0.9,en;q=0.8',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'origin': 'https://directory.ausactive.org.au',
+    'priority': 'u=1, i',
+    'sec-ch-ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
+    'x-requested-with': 'XMLHttpRequest',
+    # 'cookie': '__RequestVerificationToken=2PeepECnlPkgkwtsHEdACjrvT_nvW3RNlM_9inAmT9WOjBf0JjfAroXWl5ciDDVuI_WY3brhHlB1KgJNuB6V_jAl_GOq_vp3enx_wQnmFaU1; ARRAffinity=04b2e23daad7b335226461beb98df5e96b43a7b5e4952d7261c63364419b3f33; ARRAffinitySameSite=04b2e23daad7b335226461beb98df5e96b43a7b5e4952d7261c63364419b3f33',
+}
 
-# # Helper function to fetch data from the old database and insert it into the new one
-# def migrate_table(old_table, new_table, columns):
-#     # Fetch data from the old table
-#     old_cursor.execute(f"SELECT {', '.join(columns)} FROM {old_table}")
-#     rows = old_cursor.fetchall()
+data = {
+    '__RequestVerificationToken': 'GmcB_92GljDGYJx97RRJb42yffqr3QS3goo_FuJcrLOZ0QuSfy560vX9AgC7qAS9CZ8f1QjAmzsgIUMgghLIZfihvHiEsCJr0iF_mVRuPO81',
+    'PageIndex': '1',
+    'Term': '',
+    'PageLimit': '50',
+    'OrderBy': 'none',
+    'X-Requested-With': 'XMLHttpRequest',
+}
 
-#     # Insert data into the new table
-#     for row in rows:
-#         placeholders = ', '.join(['?' for _ in columns])
-#         insert_query = f"INSERT INTO {new_table} ({', '.join(columns)}) VALUES ({placeholders})"
-#         new_cursor.executemany(insert_query, [row])
-
-# # Migrate categories
-# migrate_table('categories', 'categories', ['id', 'link', 'created_at', 'updated_at'])
-
-# # Migrate developers
-
-# # Migrate apps
-
-# # Migrate app_versions
-
-# # Migrate pricing
-
-# # Commit changes and close connections
-# new_db_conn.commit()
-# old_db_conn.close()
-# new_db_conn.close()
-
-# print("Data migration completed successfully!")
-from models import App, Session, Category, Pricing
-
-
-# with Session() as session: 
-#     for cat in session.query(Category).all():
-#         print(cat.id)
-        
-#         # cat.link = cat.link.replace('surface_detail=endear', '').replace('&', '').replace('surface_type=app_details', '')#surface_detail=endear&surface_type=app_details
-#         cat.link = f"{cat.link.split('all')[0]}all/"
-#         session.commit()
-
-# #delete where category.id == 'categories
-
-# with Session() as session: 
-#     session.query(Category).filter(Category.id == 'categories').delete()
-#     session.commit()
-with Session() as session: 
-    session.query(App).filter_by(id='shopify-pos').first().hash = ''
-    pricing_data = session.query(Pricing).filter_by(app_id='shopify-pos').all()
-    for price_obj in pricing_data:
-        price_obj.price = 22
-        # session.add(price_obj)
-        session.commit()
+response = requests.post('https://directory.ausactive.org.au/api/Search/Business', cookies=cookies, headers=headers, data=data)
+import json
+with open('test.json', 'w', encoding='utf-8') as f:
+    json.dump(response.json(), f, ensure_ascii=False, indent=4)
