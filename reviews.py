@@ -8,7 +8,7 @@ from logger import logger
 
 BASE_URL = "https://apps.shopify.com/"
 
-
+items_count = 0
 def scrape_reviews(app_id):
     scraped_ids = []
     reviews = []
@@ -22,7 +22,7 @@ def scrape_reviews(app_id):
             url,
         )
         soup = BeautifulSoup(r.text, "lxml")
-        items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
+        global items_count
 
         if r.status_code == 404 or len(soup.find_all(
             "div",
@@ -41,6 +41,8 @@ def scrape_reviews(app_id):
                     load_reviews(reviews)
                     return
                 r = requests.get(url)
+        items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
+
         for review in soup.find_all(
             "div",
             class_="tw-pb-md md:tw-pb-lg tw-mb-md md:tw-mb-lg tw-pt-0 last:tw-pb-0",
