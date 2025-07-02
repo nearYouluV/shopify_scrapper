@@ -22,6 +22,7 @@ def scrape_reviews(app_id):
             url,
         )
         soup = BeautifulSoup(r.text, "lxml")
+        items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
 
         if r.status_code == 404 or len(soup.find_all(
             "div",
@@ -40,8 +41,6 @@ def scrape_reviews(app_id):
                     load_reviews(reviews)
                     return
                 r = requests.get(url)
-        items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
-        print()
         for review in soup.find_all(
             "div",
             class_="tw-pb-md md:tw-pb-lg tw-mb-md md:tw-mb-lg tw-pt-0 last:tw-pb-0",
