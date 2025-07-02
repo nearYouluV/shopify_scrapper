@@ -10,7 +10,10 @@ def get_app_ids():
         if response.status_code != 200:
             logger.error(f"Failed to fetch page {page}, trying again...")
             while response.status_code != 200:
+
                 response = requests.get(url)
+                if response.status_code == 404:
+                    break
         logger.info(f"Fetching page {page}")
         soup = BeautifulSoup(response.text, 'html.parser')
         app_links = soup.find_all("div", attrs={"data-controller": "app-card"})

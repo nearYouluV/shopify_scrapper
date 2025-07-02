@@ -18,3 +18,47 @@
 2025-07-01 08:59:11,077 - logger - INFO - Scraping https://apps.shopify.com/whatsapp-chat-button-4
 2025-07-01 08:59:11,151 - logger - INFO - Processing URL: https://apps.shopify.com/order-delivery-date-time
 2025-07-02 01:25:35,416 - INFO - Fetching page 1
+2025-07-02 13:02:37,002 - INFO - Fetching page 1
+2025-07-02 13:03:01,166 - INFO - Fetching page 1
+2025-07-02 13:03:55,735 - INFO - Fetching page 1
+2025-07-02 13:03:55,811 - INFO - Scraping reviews for app ID: session-recording-now, page: 1, sort: relevance
+2025-07-02 13:03:56,212 - INFO - Scraping reviews for app ID: session-recording-now, page: 2, sort: relevance
+2025-07-02 13:03:56,595 - INFO - Scraping reviews for app ID: session-recording-now, page: 3, sort: relevance
+2025-07-02 13:03:57,124 - INFO - Scraping reviews for app ID: session-recording-now, page: 4, sort: relevance
+2025-07-02 13:03:57,511 - INFO - Scraping reviews for app ID: session-recording-now, page: 5, sort: relevance
+2025-07-02 13:03:57,886 - INFO - Scraping reviews for app ID: session-recording-now, page: 6, sort: relevance
+2025-07-02 13:03:58,267 - INFO - Scraping reviews for app ID: session-recording-now, page: 7, sort: relevance
+2025-07-02 13:03:58,600 - INFO - Scraping reviews for app ID: session-recording-now, page: 8, sort: relevance
+2025-07-02 13:03:58,976 - INFO - Scraping reviews for app ID: session-recording-now, page: 9, sort: relevance
+2025-07-02 13:03:59,363 - INFO - Scraping reviews for app ID: session-recording-now, page: 10, sort: relevance
+2025-07-02 13:04:00,085 - INFO - Scraping reviews for app ID: session-recording-now, page: 11, sort: relevance
+2025-07-02 13:04:00,427 - INFO - Scraping reviews for app ID: session-recording-now, page: 12, sort: relevance
+2025-07-02 13:04:00,945 - INFO - Scraping reviews for app ID: session-recording-now, page: 13, sort: relevance
+2025-07-02 13:04:01,320 - INFO - Scraping reviews for app ID: session-recording-now, page: 14, sort: relevance
+2025-07-02 13:04:01,748 - INFO - Scraping reviews for app ID: session-recording-now, page: 15, sort: relevance
+2025-07-02 13:04:02,174 - INFO - Scraping reviews for app ID: session-recording-now, page: 16, sort: relevance
+2025-07-02 13:04:02,549 - INFO - Scraping reviews for app ID: session-recording-now, page: 17, sort: relevance
+2025-07-02 13:04:03,059 - INFO - Scraping reviews for app ID: session-recording-now, page: 18, sort: relevance
+2025-07-02 13:04:03,434 - INFO - Scraping reviews for app ID: session-recording-now, page: 19, sort: relevance
+2025-07-02 13:04:03,806 - INFO - Scraping reviews for app ID: session-recording-now, page: 20, sort: relevance
+2025-07-02 13:04:04,172 - INFO - Scraping reviews for app ID: session-recording-now, page: 21, sort: relevance
+2025-07-02 13:04:04,520 - INFO - Scraping reviews for app ID: session-recording-now, page: 22, sort: relevance
+2025-07-02 13:04:04,949 - INFO - Scraping reviews for app ID: session-recording-now, page: 23, sort: relevance
+2025-07-02 13:04:05,368 - INFO - Scraping reviews for app ID: session-recording-now, page: 24, sort: relevance
+2025-07-02 13:04:05,724 - INFO - Scraping reviews for app ID: session-recording-now, page: 25, sort: relevance
+2025-07-02 13:04:06,117 - INFO - Scraping reviews for app ID: session-recording-now, page: 26, sort: relevance
+2025-07-02 13:04:06,689 - INFO - Scraping reviews for app ID: session-recording-now, page: 27, sort: relevance
+2025-07-02 13:04:07,048 - INFO - Scraping reviews for app ID: session-recording-now, page: 28, sort: relevance
+2025-07-02 13:04:07,442 - INFO - Scraping reviews for app ID: session-recording-now, page: 29, sort: relevance
+2025-07-02 13:04:07,796 - INFO - Scraping reviews for app ID: session-recording-now, page: 30, sort: relevance
+2025-07-02 13:04:08,160 - INFO - Scraping reviews for app ID: session-recording-now, page: 31, sort: relevance
+2025-07-02 13:04:08,676 - INFO - Scraping reviews for app ID: session-recording-now, page: 32, sort: relevance
+2025-07-02 13:04:09,027 - INFO - Scraping reviews for app ID: session-recording-now, page: 33, sort: relevance
+2025-07-02 13:04:09,402 - INFO - Scraping reviews for app ID: session-recording-now, page: 34, sort: relevance
+2025-07-02 13:04:09,760 - INFO - Scraping reviews for app ID: session-recording-now, page: 35, sort: relevance
+2025-07-02 13:04:10,281 - INFO - Scraping reviews for app ID: session-recording-now, page: 36, sort: relevance
+2025-07-02 13:04:10,666 - INFO - Scraping reviews for app ID: session-recording-now, page: 37, sort: relevance
+2025-07-02 13:04:11,036 - INFO - Scraping reviews for app ID: session-recording-now, page: 38, sort: relevance
+2025-07-02 13:04:11,461 - INFO - Scraping reviews for app ID: session-recording-now, page: 39, sort: relevance
+2025-07-02 13:04:11,811 - INFO - Scraping reviews for app ID: session-recording-now, page: 40, sort: relevance
+2025-07-02 13:04:12,188 - INFO - Scraping reviews for app ID: session-recording-now, page: 41, sort: relevance
