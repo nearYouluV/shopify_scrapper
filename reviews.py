@@ -21,7 +21,10 @@ def scrape_reviews(app_id):
         r = requests.get(
             url,
         )
-        if r.status_code == 404:
+        if r.status_code == 404 or len(soup.find_all(
+            "div",
+            class_="lg:tw-grid lg:tw-grid-cols-4 lg:tw-gap-x-gutter--desktop",
+        )) == 0:
             if items_count > 10_000 and sort == 'relevance':
                 page = 1
                 sort = 'newest'
@@ -37,6 +40,7 @@ def scrape_reviews(app_id):
                 r = requests.get(url)
         soup = BeautifulSoup(r.text, "lxml")
         items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
+        print()
         for review in soup.find_all(
             "div",
             class_="tw-pb-md md:tw-pb-lg tw-mb-md md:tw-mb-lg tw-pt-0 last:tw-pb-0",
