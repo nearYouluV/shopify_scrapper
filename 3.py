@@ -25,6 +25,7 @@ from threading import Thread
 
 def scrape_app_reviews(app_ids=[]):
     print(urls[:10])
+    
     for app in app_ids:
         scrape_reviews(app)
         logger.info(f"Scraped reviews for app ID: {app}")
