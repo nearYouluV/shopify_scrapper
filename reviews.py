@@ -4,7 +4,6 @@ from time import sleep
 from models import *
 from sqlalchemy import select
 from datetime import datetime
-from logger import logger
 
 BASE_URL = "https://apps.shopify.com/"
 
@@ -17,17 +16,24 @@ def scrape_reviews(app_id):
     while True:
 
         url = f"{BASE_URL}{app_id}/reviews?page={page}&sort_by={sort}"
-        logger.info(f"Scraping reviews for app ID: {app_id}, page: {page}, sort: {sort}")
         r = requests.get(
             url,
         )
         soup = BeautifulSoup(r.text, "lxml")
         global items_count
-
+        if r.status_code == 429:
+            while r.status_code == 429:
+                sleep(1)
+                if r.status_code == 404:
+                    load_reviews(reviews)
+                    return
+                r = requests.get(url)
+                soup = BeautifulSoup(r.text, "lxml")
         if r.status_code == 404 or len(soup.find_all(
             "div",
             class_="lg:tw-grid lg:tw-grid-cols-4 lg:tw-gap-x-gutter--desktop",
         )) == 0:
+           
             if items_count > 10_000 and sort == 'relevance':
                 page = 1
                 sort = 'newest'
