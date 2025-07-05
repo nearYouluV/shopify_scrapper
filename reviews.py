@@ -13,6 +13,12 @@ def scrape_reviews(app_id):
     reviews = []
     page = 1
     sort = 'relevance'
+    
+    with Session() as session:
+        existing_review = session.query(Review).filter(Review.app_id == app_id).first()
+        if existing_review:
+            return
+        session.commit()
     while True:
 
         url = f"{BASE_URL}{app_id}/reviews?page={page}&sort_by={sort}"
@@ -47,7 +53,10 @@ def scrape_reviews(app_id):
                     load_reviews(reviews)
                     return
                 r = requests.get(url)
-        items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
+        try:
+            items_count  = int(soup.find('span',  'tw-text-body-md').text.replace(',', '').replace('(', '').replace(')', '').strip())
+        except:
+            items_count = 0
 
         for review in soup.find_all(
             "div",
