@@ -33,16 +33,17 @@ def scrape_app_reviews(app_ids=[]):
 if __name__ == "__main__":
     urls = fetch_sitemap()
     app_ids = [url.split('/')[-1].split('?')[0] for url in urls if 'partners' not in url]
-    num_threads = 4
-    threads = []
-    batch_size = len(app_ids) // num_threads
-    for i in range(num_threads):
-        start_index = i * batch_size
-        end_index = start_index + batch_size if i < num_threads - 1 else len(app_ids)
-        thread = Thread(target=scrape_app_reviews, args=(app_ids[start_index:end_index],))
-        threads.append(thread)
-        thread.start()
+    scrape_app_reviews(app_ids)
+    # num_threads = 4
+    # threads = []
+    # batch_size = len(app_ids) // num_threads
+    # for i in range(num_threads):
+    #     start_index = i * batch_size
+    #     end_index = start_index + batch_size if i < num_threads - 1 else len(app_ids)
+    #     thread = Thread(target=scrape_app_reviews, args=(app_ids[start_index:end_index],))
+    #     threads.append(thread)
+    #     thread.start()
 
-    for thread in threads:
-        thread.join()
-    logger.info("Finished scraping all app reviews.")
+    # for thread in threads:
+    #     thread.join()
+    # logger.info("Finished scraping all app reviews.")
